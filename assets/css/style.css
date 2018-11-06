@@ -1,0 +1,29 @@
+#train-table th,
+td {
+  display: inline-block;
+  width: 16.575%;
+}
+
+body {
+    background-image: url("../images/train_forest.jpg");
+    background-size:     cover;                    
+    background-repeat:   no-repeat;
+    background-position: center top;
+    max-width: auto;
+}
+
+.jumbotron {
+    opacity: 50%;
+}
+
+#head1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 80px;
+    color:  #336666;
+}
+
+#head3 {
+    font-family: 'News Cycle', sans-serif;
+    letter-spacing: 5px;
+    color:  #336666;
+}
