@@ -15,12 +15,13 @@ var config = {
   $("#add-train-btn").on("click", function(event) {
     event.preventDefault();
   
-    // Grabs user input
+    // Grabs user input---------------------FIX MOMENT FOR FIRST TRAIN-----------
     var empName = $("#train-name-input").val().trim();
     var empDest = $("#dest-input").val().trim();
-    var empFirstTrain = moment($("#time-input").val().trim());
+    var empFirstTrain = $("#time-input").val().trim();
     var empFrequency = $("#frequency-input").val().trim();
-  
+    // var empFirstTrain = moment($("#time-input").val().trim(), "HH:mm").format("HH:mm");
+
     // Creates local "temporary" object for holding train data
     var newTrain = {
       dbName: empName,
@@ -28,7 +29,9 @@ var config = {
       dbFirstTrain: empFirstTrain,
       dbFrequency: empFrequency
     };
-  
+    
+    console.log(newTrain);
+
     // Uploads train data to the database
     database.ref().push(newTrain);
   
@@ -62,9 +65,6 @@ var config = {
     console.log(empDest);
     console.log(empFirstTrain);
     console.log(empFrequency);
-  
-    // Prettify the employee start
-    //var empStartPretty = moment.unix(empStart).format("MM/DD/YYYY");
 
     //First Time
     var firstTrainConvert = moment(empFirstTrain, "HH:mm").subtract(1, "years");
@@ -72,7 +72,7 @@ var config = {
 
     //Current Time
     var currentTime = moment();
-    console.log("Current Time: " + moment(currentTime).format("hh:mm"));
+    console.log("Current Time: " + moment(currentTime).format("HH:mm"));
 
     //Difference between times
     var diffTime = moment().diff(moment(firstTrainConvert), "minutes");
@@ -88,14 +88,17 @@ var config = {
 
     //Next train arrival
     var nextArrival = moment().add(minAway, "minutes");
-    console.log("Next Arrival: " + moment(nextArrival).format("hh:mm a A"));
+    console.log("Next Arrival: " + moment(nextArrival).format("h:mm a"));
+
+    // Prettify the train start
+    var prettyTime = moment(nextArrival).format("h:mm a");
 
     // Create the new row
     var newRow = $("<tr>").append(
       $("<td>").text(empName),
       $("<td>").text(empDest),
       $("<td>").text(empFrequency),
-      $("<td>").text(nextArrival),
+      $("<td>").text(prettyTime),
       $("<td>").text(minAway)
     );
   

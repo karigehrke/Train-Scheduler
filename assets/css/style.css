@@ -12,13 +12,9 @@ body {
     max-width: auto;
 }
 
-.jumbotron {
-    opacity: 50%;
-}
-
 #head1 {
     font-family: 'Playfair Display', serif;
-    font-size: 80px;
+    font-size: 90px;
     color:  #336666;
 }
 
@@ -27,3 +23,21 @@ body {
     letter-spacing: 5px;
     color:  #336666;
 }
+
+#box-color {
+    background-color: #ffffff;
+    opacity: 0.9;
+}
+
+#header-color {
+    color:  #336666;
+}
+
+#head-style {
+    background-color: #336666;
+    color: #ffffff;
+}
+
+/* .submit-color {
+    background-color: #336666;
+} */
